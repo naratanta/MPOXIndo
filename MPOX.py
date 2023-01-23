@@ -17,9 +17,9 @@ data_clean=pd.read_csv('tweet_data_TweetMPOXfixclean_showonly (5).csv')
 st.sidebar.subheader('Analisa Cuitan')
 tweets=st.sidebar.radio('Analisa berdasarkan tipe sentimen',('positive','negative','neutral'))
 st.markdown("#### Cuitan: ")
-st.write("1.  ", data.query('label==@tweets')[['clean_text']].sample(1).iat[0,0])
-st.write("2.  ", data.query('label==@tweets')[['clean_text']].sample(1).iat[0,0])
-st.write("3.  ", data.query('label==@tweets')[['clean_text']].sample(1).iat[0,0])
+st.write("1.  ", data_clean.query('label==@tweets')[['clean_text']].sample(1).iat[0,0])
+st.write("2.  ", data_clean.query('label==@tweets')[['clean_text']].sample(1).iat[0,0])
+st.write("3.  ", data_clean.query('label==@tweets')[['clean_text']].sample(1).iat[0,0])
 
 if st.checkbox("Tampilkan 50 Data"):
     st.write(data_clean.head(50))
@@ -35,7 +35,7 @@ st.markdown("""---""")
 # An optional string to use as the unique key for the widget. If this is omitted, a key will be generated for the widget based on its content.
 ## Multiple widgets of the same type may not share the same key.
 select=st.sidebar.selectbox('Visualisasi Cuitan',['Histogram','Pie Chart','Wordcloud', 'Data Cuitan Perbulan'],key=1)
-sentiment=data['label'].value_counts()
+sentiment=data_clean['label'].value_counts()
 sentiment=pd.DataFrame({'Sentiment':sentiment.index,'Tweets':sentiment.values})
 
 if select == "Histogram":
@@ -54,8 +54,8 @@ elif select == "Wordcloud":
 else: #x nya datetime y nya count
         st.markdown("###  Data Cuitan perbulan")
         # fig = px.bar()
-        data["Datetime"] = pd.to_datetime(data["Datetime"], format="%Y-%m-%d %H:%M:%S.%f")
-        months = data.groupby(data["Datetime"].dt.month).count().plot(kind="bar",legend=None, color='b',stacked=True)
+        data_clean["Datetime"] = pd.to_datetime(data_clean["Datetime"], format="%Y-%m-%d %H:%M:%S.%f")
+        months = data_clean.groupby(data_clean["Datetime"].dt.month).count().plot(kind="bar",legend=None, color='b',stacked=True)
         months.set_xlabel("Bulan")
         hist_months = months.get_figure()
         st.pyplot(hist_months)
