@@ -11,25 +11,27 @@ st.markdown("Aplikasi ini digunakan untuk menganalisis sentimen dari 5000 cuitan
 st.sidebar.title("Sentimen Analisis")
 st.sidebar.markdown("Aplikasi ini digunakan untuk menganalisis sentimen dari 5000 cuitan berbahasa Indonesia mengenai Cacar Monyet 💉🏥")
 
-data=pd.read_csv('tweet_data_TweetMPOXfixclean (4).csv')
+data=pd.read_csv('tweet_data_TweetMPOXfixclean (5).csv')
 
 
 st.sidebar.subheader('Analisa Cuitan')
 tweets=st.sidebar.radio('Analisa berdasarkan tipe sentimen',('positive','negative','neutral'))
 st.markdown("#### Cuitan: ")
-st.write("1.  ", data.query('label==@tweets')[['Text']].sample(1).iat[0,0])
-st.write("2.  ", data.query('label==@tweets')[['Text']].sample(1).iat[0,0])
-st.write("3.  ", data.query('label==@tweets')[['Text']].sample(1).iat[0,0])
+st.write("1.  ", data.query('label==@tweets')[['clean_text']].sample(1).iat[0,0])
+st.write("2.  ", data.query('label==@tweets')[['clean_text']].sample(1).iat[0,0])
+st.write("3.  ", data.query('label==@tweets')[['clean_text']].sample(1).iat[0,0])
+
+data_clean=pd.read_csv('tweet_data_TweetMPOXfixclean_showonly (5).csv')
 
 if st.checkbox("Tampilkan 50 Data"):
-    st.write(data.head(50))
+    st.write(data_clean.head(50))
 
 st.markdown("""---""")
 
-st.markdown("#### Perbandingan antar cuitan: ")
-st.write(data.query('label==@tweets')[['Text', 'clean_text','label']].head())
+# st.markdown("#### Perbandingan antar cuitan: ")
+# st.write(data.query('label==@tweets')[['Text', 'clean_text','label']].head())
 
-st.markdown("""---""")
+# st.markdown("""---""")
 
 #selectbox + visualisation
 # An optional string to use as the unique key for the widget. If this is omitted, a key will be generated for the widget based on its content.
@@ -49,7 +51,7 @@ elif select == "Pie Chart":
 elif select == "Wordcloud":
        st.markdown("###  Word Cloud")
        from PIL import Image
-       image = Image.open('WC_alltweets_MPOX_Indonesia(2).png')
+       image = Image.open('WC_alltweets_MPOX_Indonesia_fix.png')
        st.image(image, caption='Word Cloud Monkeypox')
 else: #x nya datetime y nya count
         st.markdown("###  Data Cuitan perbulan")
@@ -61,4 +63,4 @@ else: #x nya datetime y nya count
         st.pyplot(hist_months)
 
 
-st.markdown("Data yang diolah merupakan data yang didapat dari cuitan Twitter sejak 07/28/2022 hingga 12/31/2022.")
+st.markdown("Data yang diolah merupakan data yang sudah dibersihkan, didapat dari cuitan pada Twitter sejak 07/28/2022 hingga 12/31/2022.")
