@@ -11,7 +11,7 @@ st.markdown("Aplikasi ini digunakan untuk menganalisis sentimen dari 5000 cuitan
 st.sidebar.title("Sentimen Analisis")
 st.sidebar.markdown("Aplikasi ini digunakan untuk menganalisis sentimen dari 5000 cuitan berbahasa Indonesia mengenai Cacar Monyet 💉🏥")
 
-data=pd.read_csv('tweet_data_TweetMPOXfixclean (5).csv')
+data_clean=pd.read_csv('tweet_data_TweetMPOXfixclean_showonly (5).csv')
 
 
 st.sidebar.subheader('Analisa Cuitan')
@@ -20,8 +20,6 @@ st.markdown("#### Cuitan: ")
 st.write("1.  ", data.query('label==@tweets')[['clean_text']].sample(1).iat[0,0])
 st.write("2.  ", data.query('label==@tweets')[['clean_text']].sample(1).iat[0,0])
 st.write("3.  ", data.query('label==@tweets')[['clean_text']].sample(1).iat[0,0])
-
-data_clean=pd.read_csv('tweet_data_TweetMPOXfixclean_showonly (5).csv')
 
 if st.checkbox("Tampilkan 50 Data"):
     st.write(data_clean.head(50))
