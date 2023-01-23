@@ -5,11 +5,11 @@ import plotly.express as px
 import numpy as np
 from datetime import datetime
 
-st.title("Sentimen Analisis dari cuitan pada Twitter mengenai Monkeypox")
-st.markdown("Aplikasi ini digunakan untuk menganalisis sentimen dari 15000+ cuitan berbahasa Indonesia mengenai Monkeypox 🐵")
+st.title("Sentimen Analisis dari cuitan pada Twitter mengenai Cacar Monyet")
+st.markdown("Aplikasi ini digunakan untuk menganalisis sentimen dari 5000 cuitan berbahasa Indonesia mengenai Cacar Monyet 💉🏥")
 
 st.sidebar.title("Sentimen Analisis")
-st.sidebar.markdown("Aplikasi ini digunakan untuk menganalisis sentimen dari 15000+ cuitan berbahasa Indonesia mengenai Monkeypox 🐵")
+st.sidebar.markdown("Aplikasi ini digunakan untuk menganalisis sentimen dari 5000 cuitan berbahasa Indonesia mengenai Cacar Monyet 💉🏥")
 
 data=pd.read_csv('tweet_data_TweetMPOXfixclean (4).csv')
 
