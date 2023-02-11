@@ -6,10 +6,10 @@ import numpy as np
 from datetime import datetime
 
 st.title("Sentimen Analisis dari cuitan pada Twitter mengenai Cacar Monyet")
-st.markdown("Aplikasi ini digunakan untuk menganalisis sentimen dari 772 cuitan berbahasa Indonesia mengenai Cacar Monyet 💉🏥")
+st.markdown("Website berisi visualisasi informasi ini dibuat untuk menampilkan hasil analisis sentimen dari 772 cuitan berbahasa Indonesia mengenai Cacar Monyet 💉🏥")
 
 st.sidebar.title("Sentimen Analisis")
-st.sidebar.markdown("Aplikasi ini digunakan untuk menganalisis sentimen dari 772 cuitan berbahasa Indonesia mengenai Cacar Monyet 💉🏥")
+st.sidebar.markdown("Website berisi visualisasi informasi ini dibuat untuk menampilkan hasil analisis sentimen dari 772 cuitan berbahasa Indonesia mengenai Cacar Monyet 💉🏥")
 
 data_clean=pd.read_csv('df_copy_web.csv')
 
@@ -247,4 +247,4 @@ else:
 
 
 
-st.markdown("Data yang diolah merupakan data yang sudah dibersihkan, didapat dari cuitan pada Twitter sejak 08/01/2021 hingga 12/31/2022.")
+st.markdown("Data yang diolah merupakan data yang sudah dibersihkan, didapat dari cuitan dengan kata kunci'Cacar Monyet' pada Twitter sejak 08/Januari/2021 hingga 20/Desember/2022.")
